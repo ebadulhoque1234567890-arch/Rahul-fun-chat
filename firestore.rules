@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Catch-all default deny rule
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Users Collection rules:
+    // Support both real authenticated users and simulated accounts in the sandbox device environment
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Greedy Pro Game State rules:
+    // Real-time state of the game can be read by anyone to support real-time updates
+    match /greedy_games/{roomId} {
+      allow read, write: if true;
+    }
+
+    // Greedy Leaderboard rules:
+    match /greedy_leaderboard/{userId} {
+      allow read, write: if true;
+    }
+
+    // Greedy Bet history rules:
+    match /greedy_bets/{betId} {
+      allow read, write: if true;
+    }
+
+    // VIP Level rules:
+    match /vip_levels/{levelId} {
+      allow read, write: if true;
+    }
+
+    // Gift Store rules:
+    match /gift_store/{giftId} {
+      allow read, write: if true;
+    }
+
+    // Gift History rules:
+    match /gift_history/{historyId} {
+      allow read, write: if true;
+    }
+
+    // Entry Effects rules:
+    match /entry_effects/{effectId} {
+      allow read, write: if true;
+    }
+
+    // Room Announcements rules:
+    match /room_announcements/{announcementId} {
+      allow read, write: if true;
+    }
+
+    // Rooms, Messages, PK Battles, Families, System:
+    // Support all supporting collections for local and cloud sync
+    match /rooms/{roomId} {
+      allow read, write: if true;
+    }
+    match /messages/{msgId} {
+      allow read, write: if true;
+    }
+    match /pkBattles/{pkId} {
+      allow read, write: if true;
+    }
+    match /families/{famId} {
+      allow read, write: if true;
+    }
+    match /system/{sysId} {
+      allow read, write: if true;
+    }
+  }
+}

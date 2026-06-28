@@ -1,0 +1,8 @@
+{
+  "name": "EbadulChat Fun",
+  "description": "An Android and Web social voice chat app with interactive rooms, live PK battles, voice seats, leveling systems, and a secure virtual gift wallet.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

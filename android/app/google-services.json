@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "568901418090",
+    "firebase_url": "https://kajal-fun-chat-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "kajal-fun-chat",
+    "storage_bucket": "kajal-fun-chat.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568901418090:android:558170d026170dd7265e13",
+        "android_client_info": {
+          "package_name": "com.ebadulofficial.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568901418090-qtq3t9j8djjviak421pfdv59ggd3l4jq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg4UXfpXtyOCSkqYZOHDhLdWtHJjQlc-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568901418090-qtq3t9j8djjviak421pfdv59ggd3l4jq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

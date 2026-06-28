@@ -1,0 +1,308 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account and profile data",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "displayName": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "coverUrl": { "type": "string" },
+        "bio": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "username", "displayName", "createdAt"]
+    },
+    "GreedyGame": {
+      "title": "Greedy Game State",
+      "description": "Real-time state of the food multiplier game in a specific room",
+      "type": "object",
+      "properties": {
+        "roomId": { "type": "string" },
+        "status": { "type": "string" },
+        "timeLeft": { "type": "integer" },
+        "lastResult": { "type": "string" },
+        "history": { "type": "array" },
+        "bets": { "type": "object" },
+        "winnerIndex": { "type": "integer" },
+        "winnerAngle": { "type": "integer" },
+        "bannerWinner": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["roomId", "status", "timeLeft", "updatedAt"]
+    },
+    "GreedyLeaderboard": {
+      "title": "Greedy Daily Leaderboard",
+      "description": "Highest daily winnings per user in the Greedy Pro game",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "totalWonDiamonds": { "type": "integer" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "displayName", "totalWonDiamonds", "updatedAt"]
+    },
+    "GreedyBet": {
+      "title": "Greedy Bet",
+      "description": "Historical logs of bets placed by users in Greedy Pro",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "roomId": { "type": "string" },
+        "userId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "foodId": { "type": "string" },
+        "amount": { "type": "integer" },
+        "payout": { "type": "integer" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "roomId", "userId", "foodId", "amount", "status", "createdAt"]
+    },
+    "VipLevel": {
+      "title": "VIP Level Configuration",
+      "description": "Information about a custom VIP level (1 to 10)",
+      "type": "object",
+      "properties": {
+        "level": { "type": "integer" },
+        "title": { "type": "string" },
+        "minRechargeUsd": { "type": "integer" },
+        "badgeIcon": { "type": "string" },
+        "profileFrameStyle": { "type": "string" },
+        "chatBubbleStyle": { "type": "string" },
+        "entryBanner": { "type": "string" },
+        "entrySound": { "type": "string" }
+      },
+      "required": ["level", "title", "minRechargeUsd"]
+    },
+    "GiftStore": {
+      "title": "Virtual Gift Catalog Store",
+      "description": "A purchasable virtual gift in the chat application",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "cost": { "type": "integer" },
+        "imageUrl": { "type": "string" },
+        "animationType": { "type": "string" },
+        "effectClass": { "type": "string" },
+        "category": { "type": "string" }
+      },
+      "required": ["id", "name", "cost", "imageUrl", "animationType", "category"]
+    },
+    "GiftHistory": {
+      "title": "Gift History Log",
+      "description": "History of sent virtual gifts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "receiverName": { "type": "string" },
+        "giftId": { "type": "string" },
+        "giftName": { "type": "string" },
+        "giftImageUrl": { "type": "string" },
+        "cost": { "type": "integer" },
+        "comboCount": { "type": "integer" },
+        "roomId": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "senderId", "receiverId", "giftId", "cost", "timestamp"]
+    },
+    "EntryEffect": {
+      "title": "User Entry Effect Configuration",
+      "description": "Special entrance animation settings",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "vipLevel": { "type": "integer" },
+        "effectType": { "type": "string" },
+        "bannerText": { "type": "string" },
+        "glowingClass": { "type": "string" },
+        "soundEffect": { "type": "string" }
+      },
+      "required": ["id", "userId", "vipLevel"]
+    },
+    "RoomAnnouncement": {
+      "title": "Room / System Announcements",
+      "description": "Global broadcasts and system-wide sticky announcements",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "roomId": { "type": "string" },
+        "content": { "type": "string" },
+        "authorId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "content", "createdAt"]
+    },
+    "Relationship": {
+      "title": "Relationship",
+      "description": "An active relationship between two users",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "user1Id": { "type": "string" },
+        "user2Id": { "type": "string" },
+        "user1Name": { "type": "string" },
+        "user2Name": { "type": "string" },
+        "user1Avatar": { "type": "string" },
+        "user2Avatar": { "type": "string" },
+        "type": { "type": "string" },
+        "level": { "type": "integer" },
+        "points": { "type": "integer" },
+        "pointsNextLevel": { "type": "integer" },
+        "createdAt": { "type": "integer" },
+        "streakDays": { "type": "integer" },
+        "lastCheckIn": { "type": "integer" },
+        "anniversaryDate": { "type": "string" }
+      },
+      "required": ["id", "user1Id", "user2Id", "type", "level", "points", "createdAt"]
+    },
+    "RelationshipRequest": {
+      "title": "Relationship Request",
+      "description": "A pending or handled relationship proposal",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "senderAvatar": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "receiverName": { "type": "string" },
+        "receiverAvatar": { "type": "string" },
+        "type": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "senderId", "receiverId", "type", "status", "createdAt"]
+    },
+    "RelationshipLevelConfig": {
+      "title": "Relationship Level Config",
+      "description": "Configuration details for relationship progression",
+      "type": "object",
+      "properties": {
+        "level": { "type": "integer" },
+        "pointsRequired": { "type": "integer" },
+        "badgeName": { "type": "string" },
+        "unlockedTitle": { "type": "string" },
+        "unlockedFrame": { "type": "string" },
+        "unlockedEffect": { "type": "string" }
+      },
+      "required": ["level", "pointsRequired", "badgeName", "unlockedTitle"]
+    },
+    "RelationshipHistoryLog": {
+      "title": "Relationship History Log",
+      "description": "Historical log of relationship status updates and milestones",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "user1Id": { "type": "string" },
+        "user2Id": { "type": "string" },
+        "type": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "integer" }
+      },
+      "required": ["id", "user1Id", "user2Id", "type", "action", "timestamp"]
+    },
+    "RelationshipReward": {
+      "title": "Relationship Reward",
+      "description": "Rewards claimable by level milestones",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "level": { "type": "integer" },
+        "type": { "type": "string" },
+        "value": { "type": "string" },
+        "claimed": { "type": "boolean" },
+        "claimedByUserId": { "type": "string" },
+        "relationshipId": { "type": "string" }
+      },
+      "required": ["id", "level", "type", "value", "claimed", "relationshipId"]
+    },
+    "RelationshipDailyTask": {
+      "title": "Relationship Daily Task",
+      "description": "Tasks users can perform together for points bonus",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "pointsReward": { "type": "integer" },
+        "completed": { "type": "boolean" },
+        "progress": { "type": "integer" },
+        "target": { "type": "integer" },
+        "type": { "type": "string" }
+      },
+      "required": ["id", "title", "pointsReward", "completed", "progress", "target", "type"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection of user profiles linked by Firebase Authentication UIDs"
+    },
+    "/greedy_games/{roomId}": {
+      "schema": "GreedyGame",
+      "description": "Real-time room-specific game states"
+    },
+    "/greedy_leaderboard/{userId}": {
+      "schema": "GreedyLeaderboard",
+      "description": "Winnings leaderboard for the food multiplier game"
+    },
+    "/greedy_bets/{betId}": {
+      "schema": "GreedyBet",
+      "description": "Collection of placed and resolved bet records"
+    },
+    "/vip_levels/{levelId}": {
+      "schema": "VipLevel",
+      "description": "Collection of custom VIP configurations (level 1-10)"
+    },
+    "/gift_store/{giftId}": {
+      "schema": "GiftStore",
+      "description": "Store collection of purchasable and custom gifts"
+    },
+    "/gift_history/{historyId}": {
+      "schema": "GiftHistory",
+      "description": "Collection of logged gift exchanges"
+    },
+    "/entry_effects/{effectId}": {
+      "schema": "EntryEffect",
+      "description": "User specific or Level specific entry effect setups"
+    },
+    "/room_announcements/{announcementId}": {
+      "schema": "RoomAnnouncement",
+      "description": "Collection of sticky room alerts and global system notifications"
+    },
+    "/relationship_requests/{requestId}": {
+      "schema": "RelationshipRequest",
+      "description": "Collection of user-to-user relationship request records"
+    },
+    "/relationships/{relationshipId}": {
+      "schema": "Relationship",
+      "description": "Collection of active relationships of various kinds"
+    },
+    "/relationship_levels/{levelId}": {
+      "schema": "RelationshipLevelConfig",
+      "description": "Master config of levels and point metrics"
+    },
+    "/relationship_history/{historyId}": {
+      "schema": "RelationshipHistoryLog",
+      "description": "Historical log logs of relationship actions and events"
+    },
+    "/relationship_rewards/{rewardId}": {
+      "schema": "RelationshipReward",
+      "description": "Claimable tier-wise rewards"
+    },
+    "/relationship_daily_tasks/{taskId}": {
+      "schema": "RelationshipDailyTask",
+      "description": "Collection of daily goals to level up bonds"
+    }
+  }
+}
